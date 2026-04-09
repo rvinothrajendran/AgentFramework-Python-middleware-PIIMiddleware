@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "azureaicommunity-agent-pii-middleware"
+version = "0.1.0"
+description = "PII detection and security middleware for AI agent pipelines"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+authors = [{ name = "Vinoth Rajendran", email = "r.vinoth@live.com" }]
+keywords = ["ai", "security", "middleware", "pii", "llm", "agent", "azure", "azure-ai", "community"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "agent-framework",
+    "emoji<2.0.0",
+    "recognizers-text",
+    "recognizers-text-number",
+    "recognizers-text-number-with-unit",
+    "recognizers-text-date-time",
+    "recognizers-text-sequence",
+]
+
+[project.urls]
+Homepage = "https://github.com/Azure-AI-Community/python-Agent-middleware"
+Repository = "https://github.com/Azure-AI-Community/python-Agent-middleware"
+Issues = "https://github.com/Azure-AI-Community/python-Agent-middleware/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pii_middleware*"]
