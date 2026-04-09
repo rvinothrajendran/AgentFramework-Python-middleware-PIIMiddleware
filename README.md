@@ -1,14 +1,9 @@
 <div align="center">
 
-```
-┌─────────────────────────────────────────────────────┐
-│                                                     │
-│   🛡️  AzureAICommunity PII Security Middleware       │
-│                                                     │
-│   PII detection & blocking for AI agent pipelines  │
-│                                                     │
-└─────────────────────────────────────────────────────┘
-```
+# 🛡️ AzureAICommunity - Agent - PII Middleware
+
+Secure AI agent pipelines by detecting and controlling **personally identifiable information (PII)** before it reaches the AI model.
+
 
 [![PyPI version](https://img.shields.io/pypi/v/azureaicommunity-agent-pii-middleware?color=blue&style=flat-square)](https://pypi.org/project/azureaicommunity-agent-pii-middleware/)
 [![Python](https://img.shields.io/pypi/pyversions/azureaicommunity-agent-pii-middleware?style=flat-square)](https://pypi.org/project/azureaicommunity-agent-pii-middleware/)
@@ -27,26 +22,9 @@
 
 `azureaicommunity-agent-pii-middleware` is a plug-and-play security layer for AI agent pipelines built on `agent-framework`. It scans every user message for PII using Microsoft's [Recognizers Text](https://github.com/microsoft/Recognizers-Text) library and can optionally route ambiguous detections through a secondary LLM for a second opinion.
 
-```
-User message
-     │
-     ▼
-┌────────────────────┐
-│  PII Detection     │  ← emails, phones, credit cards, SSNs…
-│  (Recognizers NLP) │
-└────────┬───────────┘
-         │ blocked entity found?
-         ▼
-┌────────────────────┐
-│  LLM Validation    │  ← optional secondary agent review
-│  (allow / block)   │
-└────────┬───────────┘
-         │
-    ┌────┴────┐
-    ▼         ▼
- BLOCKED    ALLOWED
- ← 🚫        → LLM
-```
+<img width="650" height="700" alt="image" src="https://github.com/user-attachments/assets/edbc23c5-2d97-4dc7-b6ae-c93d9f2c4721" />
+
+
 
 ---
 
