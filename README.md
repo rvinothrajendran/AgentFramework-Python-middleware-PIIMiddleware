@@ -6,9 +6,11 @@ Secure AI agent pipelines by detecting and controlling **personally identifiable
 
 [![PyPI Version](https://img.shields.io/pypi/v/azureaicommunity-agent-pii-middleware)](https://pypi.org/project/azureaicommunity-agent-pii-middleware/)
 [![Python Versions](https://img.shields.io/pypi/pyversions/azureaicommunity-agent-pii-middleware)](https://pypi.org/project/azureaicommunity-agent-pii-middleware/)
-[![Downloads](https://img.shields.io/pypi/dm/azureaicommunity-agent-pii-middleware?color=orange)](https://pypi.org/project/azureaicommunity-agent-pii-middleware/)
+![PyPI Downloads](https://static.pepy.tech/badge/azureaicommunity-agent-pii-middleware)
 [![License](https://img.shields.io/pypi/l/azureaicommunity-agent-pii-middleware)](https://pypi.org/project/azureaicommunity-agent-pii-middleware/)
 [![PyPI Status](https://img.shields.io/pypi/status/azureaicommunity-agent-pii-middleware)](https://pypi.org/project/azureaicommunity-agent-pii-middleware/)
+
+
 
 **Intercept, detect, and block sensitive personal data before it reaches your LLM — with zero friction.**
 
