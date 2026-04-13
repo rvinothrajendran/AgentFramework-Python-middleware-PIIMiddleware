@@ -25,7 +25,7 @@ Packages are organized by runtime:
 
 ## 🐍 Python Packages
 
-All Python packages are published to [PyPI](https://pypi.org/search/?q=azureaicommunity-agent) and follow the same builder-pattern API.
+All Python packages are published to [PyPI](https://pypi.org/search/?q=azureaicommunity-agent) 
 
 📖 [Python Middleware overview →](AgentFramework/Python/Middleware/README.md)
 
