@@ -350,7 +350,8 @@ async def test_back_translation_azure_fails_falls_back_to_llm(monkeypatch, mock_
     assert response_msg.contents[0].text == "La capital de Francia es París."
 
 
-
+@pytest.mark.asyncio
+async def test_no_back_translation_when_user_language_is_target_azure(monkeypatch):
     """If user writes in the target language, no back-translation should happen."""
     config = AzureTranslatorConfig("key", "region")
     middleware = LanguageTranslationMiddleware.create(azure_config=config)
@@ -390,17 +391,14 @@ async def test_azure_service_conforms_to_protocol():
 
 
 @pytest.mark.asyncio
-async def test_azure_service_reuses_session(monkeypatch):
-    import aiohttp
-
+async def test_azure_service_initializes_with_config():
     config = AzureTranslatorConfig("key", "region")
     service = AzureTranslationService(config)
 
-    session1 = await service._get_session()
-    session2 = await service._get_session()
-
-    assert session1 is session2
-    await session1.close()
+    assert service is not None
+    assert service.config is config
+    assert service.config.key == "key"
+    assert service.config.region == "region"
 
 
 # ---------------------------------------------------------------------------

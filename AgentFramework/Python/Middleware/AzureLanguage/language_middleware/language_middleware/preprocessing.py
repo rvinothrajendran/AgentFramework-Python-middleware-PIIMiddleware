@@ -73,7 +73,7 @@ class LanguageTranslationMiddleware(ChatMiddleware):
 
         if last_message and last_message.text:
             original_text = last_message.text.strip()
-            logger.info("User message: %s", original_text)
+            logger.debug("User message length: %d", len(original_text))
             if original_text:
                 try:
                     detected_language, confidence = await service.detect_language(original_text)
@@ -85,18 +85,32 @@ class LanguageTranslationMiddleware(ChatMiddleware):
                         await call_next()
                         return
 
-                if detected_language != self.target_language:
+                confidence_meets_threshold = (
+                    confidence is None or confidence >= self.min_confidence
+                )
+
+                if (
+                    detected_language != self.target_language
+                    and confidence_meets_threshold
+                ):
                     translated = await self._translate(service, last_message, original_text, detected_language, confidence)
                     if translated:
                         last_message.contents[0].text = translated
                         user_language = detected_language  # only back-translate if forward translation succeeded
+                elif detected_language != self.target_language:
+                    logger.info(
+                        "Skipping translation for detected language '%s' due to low confidence (%s < %s)",
+                        detected_language,
+                        confidence,
+                        self.min_confidence,
+                    )
 
         await call_next()
 
         if context.result:
             for msg in context.result.messages:
                 if msg.text:
-                    logger.info("LLM response: %s", msg.text.strip())
+                    logger.debug("LLM response length: %d", len(msg.text.strip()))
 
         if user_language and context.result:
             for response_message in context.result.messages:
@@ -109,7 +123,7 @@ class LanguageTranslationMiddleware(ChatMiddleware):
                     back_translated = await service.translate(response_text, self.target_language, user_language)
                     if back_translated:
                         response_message.contents[0].text = back_translated
-                        logger.info("Back-translated response (%s): %s", user_language, back_translated)
+                        logger.debug("Back-translated response to '%s' (length: %d)", user_language, len(back_translated))
                 except Exception as e:
                     logger.warning("Azure back-translation to %s failed: %s — trying LLM fallback", user_language, e)
                     if self.llm and service is not self.llm:
@@ -117,7 +131,7 @@ class LanguageTranslationMiddleware(ChatMiddleware):
                             back_translated = await self.llm.translate(response_text, self.target_language, user_language)
                             if back_translated:
                                 response_message.contents[0].text = back_translated
-                                logger.info("Back-translated response (%s): %s", user_language, back_translated)
+                                logger.debug("Back-translated response to '%s' via LLM (length: %d)", user_language, len(back_translated))
                         except Exception as llm_e:
                             logger.warning("LLM back-translation to %s also failed: %s", user_language, llm_e)
 

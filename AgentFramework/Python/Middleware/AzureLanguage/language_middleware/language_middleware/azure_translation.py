@@ -23,7 +23,7 @@ class AzureTranslationService:
 
     async def detect_language(self, text: str) -> Tuple[str, float]:
         try:
-            response = await asyncio.get_event_loop().run_in_executor(
+            response = await asyncio.get_running_loop().run_in_executor(
                 None,
                 lambda: self._client.translate(body=[text], to_language=["en"])
             )
@@ -36,7 +36,7 @@ class AzureTranslationService:
 
     async def translate(self, text: str, source: str, target: str) -> str:
         try:
-            response = await asyncio.get_event_loop().run_in_executor(
+            response = await asyncio.get_running_loop().run_in_executor(
                 None,
                 lambda: self._client.translate(body=[text], from_language=source, to_language=[target])
             )
