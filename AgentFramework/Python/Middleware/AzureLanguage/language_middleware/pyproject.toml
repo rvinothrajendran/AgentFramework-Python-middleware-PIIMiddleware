@@ -1,0 +1,42 @@
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "azureaicommunity-agent-language-middleware"
+version = "0.1.0"
+description = "Language detection and translation middleware for AI agent frameworks"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+authors = [{ name = "Vinoth Rajendran", email = "r.vinoth@live.com" }]
+keywords = ["ai", "agent", "middleware", "language", "translation", "azure", "azure-ai", "community", "nlp"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "agent-framework",
+    "azure-ai-translation-text>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Azure-AI-Community/python-Agent-middleware"
+Repository = "https://github.com/Azure-AI-Community/python-Agent-middleware"
+Issues = "https://github.com/Azure-AI-Community/python-Agent-middleware/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["language_middleware*"]
+
+[tool.setuptools.package-data]
+language_middleware = ["assets/*"]
