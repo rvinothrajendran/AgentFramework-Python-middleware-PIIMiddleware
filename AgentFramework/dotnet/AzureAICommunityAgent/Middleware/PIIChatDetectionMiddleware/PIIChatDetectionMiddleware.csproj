@@ -12,7 +12,7 @@
         <Version>1.0.0</Version>
         <Title>AzureAICommunity – PII Chat Detection Middleware</Title>
         <Authors>Vinoth Rajendran</Authors>
-        <Copyright>Copyright © 2025 Vinoth Rajendran – AzureAICommunity</Copyright>
+        <Copyright>Copyright © 2026 Vinoth Rajendran – AzureAICommunity</Copyright>
         <Description>A plug-and-play security middleware for Microsoft.Extensions.AI chat pipelines. Detects personally identifiable information (PII) — emails, phone numbers, IP addresses, credit cards, dates and more — in every outgoing user message, then enforces a configurable policy: Allow (pass through), Mask (replace with tokens), or Block (reject the request before it reaches the LLM).</Description>
         <PackageTags>pii;ai;middleware;chat;extensions-ai;security;privacy;masking;detection;llm;agent;microsoft-extensions-ai;dotnet</PackageTags>
 

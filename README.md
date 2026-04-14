@@ -35,6 +35,7 @@ All Python packages are published to [PyPI](https://pypi.org/search/?q=azureaico
 |---|---|---|---|---|
 | `azureaicommunity-agent-language-middleware` | [![PyPI](https://img.shields.io/pypi/v/azureaicommunity-agent-language-middleware)](https://pypi.org/project/azureaicommunity-agent-language-middleware/) | `pip install`<br>`azureaicommunity-agent-language-middleware` | Language detection, translation, and back-translation for multi-lingual agent interactions | [README →](AgentFramework/Python/Middleware/AzureLanguage/language_middleware/README.md) |
 | `azureaicommunity-agent-pii-middleware` | [![PyPI](https://img.shields.io/pypi/v/azureaicommunity-agent-pii-middleware)](https://pypi.org/project/azureaicommunity-agent-pii-middleware/) | `pip install`<br>`azureaicommunity-agent-pii-middleware` | PII detection and blocking before sensitive data reaches the LLM | [README →](AgentFramework/Python/Middleware/pii_middleware/README.md) |
+| `azureaicommunity-agent-token-guard` | [![PyPI](https://img.shields.io/pypi/v/azureaicommunity-agent-token-guard)](https://pypi.org/project/azureaicommunity-agent-token-guard/) | `pip install`<br>`azureaicommunity-agent-token-guard` | Token usage tracking and quota enforcement per user, per period | [README →](AgentFramework/Python/Middleware/AgentTokenGuard/README.md) |
 
 ---
 

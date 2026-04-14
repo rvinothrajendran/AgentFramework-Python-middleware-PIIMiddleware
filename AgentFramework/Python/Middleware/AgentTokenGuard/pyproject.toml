@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "azureaicommunity-agent-token-guard"
+version = "0.1.0"
+description = "Token usage tracking and quota enforcement middleware for AI agent pipelines"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Vinoth Rajendran", email = "r.vinoth@live.com" }]
+keywords = ["ai", "tokens", "quota", "middleware", "llm", "agent", "azure", "azure-ai", "community"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "agent-framework",
+]
+
+[project.urls]
+Homepage = "https://github.com/Azure-AI-Community/python-Agent-middleware"
+Repository = "https://github.com/Azure-AI-Community/python-Agent-middleware"
+Issues = "https://github.com/Azure-AI-Community/python-Agent-middleware/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["token_guard_middleware*"]
