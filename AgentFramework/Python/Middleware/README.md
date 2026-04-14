@@ -18,6 +18,7 @@ This folder contains middleware packages that extend `agent-framework` pipelines
 |---|---|---|---|
 | `azureaicommunity-agent-language-middleware` | [![PyPI](https://img.shields.io/pypi/v/azureaicommunity-agent-language-middleware)](https://pypi.org/project/azureaicommunity-agent-language-middleware/) | Automatic language detection, translation, and back-translation for multi-lingual agent interactions | [README →](AzureLanguage/language_middleware/README.md) |
 | `azureaicommunity-agent-pii-middleware` | [![PyPI](https://img.shields.io/pypi/v/azureaicommunity-agent-pii-middleware)](https://pypi.org/project/azureaicommunity-agent-pii-middleware/) | PII detection and blocking before sensitive data reaches the LLM | [README →](pii_middleware/README.md) |
+| `azureaicommunity-agent-token-guard` | [![PyPI](https://img.shields.io/pypi/v/azureaicommunity-agent-token-guard)](https://pypi.org/project/azureaicommunity-agent-token-guard/) | Token usage tracking and quota enforcement per user, per period | [README →](AgentTokenGuard/README.md) |
 
 ---
 
@@ -46,6 +47,21 @@ Scans every user message for personally identifiable information (PII) and block
 
 📦 `pip install azureaicommunity-agent-pii-middleware`  
 📖 [Full documentation](pii_middleware/README.md)
+
+---
+
+## 🪙 Token Guard Middleware
+
+Tracks token usage per user and enforces configurable quotas — blocking calls that exceed the limit and invoking a callback when the threshold is breached.
+
+- Per-user token quota enforcement (daily, weekly, monthly, or custom period)
+- Pluggable `QuotaStore` — in-memory or bring your own (file, Redis, database, etc.)
+- `on_usage` callback with full usage record after every call
+- `on_quota_exceeded` callback when a user hits their limit
+- Works with any `agent-framework` compatible LLM client
+
+📦 `pip install azureaicommunity-agent-token-guard`  
+📖 [Full documentation](AgentTokenGuard/README.md)
 
 ---
 
