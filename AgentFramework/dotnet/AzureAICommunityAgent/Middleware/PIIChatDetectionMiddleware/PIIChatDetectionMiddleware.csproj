@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware</AssemblyName>
+        <RootNamespace>AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware</RootNamespace>
+
+        <!-- ── NuGet package identity ────────────────────────────── -->
+        <PackageId>AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware</PackageId>
+        <Version>1.0.0</Version>
+        <Title>AzureAICommunity – PII Chat Detection Middleware</Title>
+        <Authors>Vinoth Rajendran</Authors>
+        <Copyright>Copyright © 2025 Vinoth Rajendran – AzureAICommunity</Copyright>
+        <Description>A plug-and-play security middleware for Microsoft.Extensions.AI chat pipelines. Detects personally identifiable information (PII) — emails, phone numbers, IP addresses, credit cards, dates and more — in every outgoing user message, then enforces a configurable policy: Allow (pass through), Mask (replace with tokens), or Block (reject the request before it reaches the LLM).</Description>
+        <PackageTags>pii;ai;middleware;chat;extensions-ai;security;privacy;masking;detection;llm;agent;microsoft-extensions-ai;dotnet</PackageTags>
+
+        <!-- ── Licensing and project links ───────────────────────── -->
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageProjectUrl>https://github.com/rvinothrajendran/AgentFramework</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/rvinothrajendran/AgentFramework</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+
+        <!-- ── Package assets ────────────────────────────────────── -->
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>icon.jpg</PackageIcon>
+
+        <!-- ── Symbol / determinism ──────────────────────────────── -->
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <Deterministic>true</Deterministic>
+
+        <!-- Suppress NU1904: NuGet.CommandLine vulnerability is a transitive dep of
+             Microsoft.Recognizers.Text — not directly controlled by this project. -->
+        <NoWarn>$(NoWarn);NU1904</NoWarn>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Include="README.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CreditCardValidator" Version="3.0.1" />
+      <PackageReference Include="Microsoft.Extensions.AI" Version="10.4.1" />
+      <PackageReference Include="Microsoft.Recognizers.Text" Version="1.8.13" />
+      <PackageReference Include="Microsoft.Recognizers.Text.DateTime" Version="1.8.13" />
+      <PackageReference Include="Microsoft.Recognizers.Text.Number" Version="1.8.13" />
+      <PackageReference Include="Microsoft.Recognizers.Text.Sequence" Version="1.8.13" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="icon.jpg">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+    </ItemGroup>
+
+</Project>

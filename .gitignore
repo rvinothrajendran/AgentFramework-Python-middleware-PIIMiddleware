@@ -3,6 +3,29 @@ dist/
 build/
 *.egg-info/
 
+# .NET build outputs
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+# .NET test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# NuGet
+*.nupkg
+*.snupkg
+nuget.config
+!**/nuget.config
+*.nuspec
+packages/
+project.lock.json
+project.fragment.lock.json
+
 # Python
 __pycache__/
 *.py[cod]
