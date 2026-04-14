@@ -19,7 +19,7 @@ Packages are organized by runtime:
 | Runtime | Location | Status |
 |---|---|---|
 | Python | [`AgentFramework/Python/`](AgentFramework/Python/) | ✅ Available |
-| .NET | `AgentFramework/DotNet/` _(coming soon)_ | 🚧 Planned |
+| .NET | [`AgentFramework/dotnet/`](AgentFramework/dotnet/) | ✅ Available |
 
 ---
 
@@ -31,17 +31,24 @@ All Python packages are published to [PyPI](https://pypi.org/search/?q=azureaico
 
 ### Available Packages
 
-| Package | Install | Description | Docs |
-|---|---|---|---|
-| `azureaicommunity-agent-language-middleware` | `pip install azureaicommunity-agent-language-middleware` | Language detection, translation, and back-translation for multi-lingual agent interactions | [README →](AgentFramework/Python/Middleware/AzureLanguage/language_middleware/README.md) |
-| `azureaicommunity-agent-pii-middleware` | `pip install azureaicommunity-agent-pii-middleware` | PII detection and blocking before sensitive data reaches the LLM | [README →](AgentFramework/Python/Middleware/pii_middleware/README.md) |
+| Package | Version | Install | Description | Docs |
+|---|---|---|---|---|
+| `azureaicommunity-agent-language-middleware` | [![PyPI](https://img.shields.io/pypi/v/azureaicommunity-agent-language-middleware)](https://pypi.org/project/azureaicommunity-agent-language-middleware/) | `pip install`<br>`azureaicommunity-agent-language-middleware` | Language detection, translation, and back-translation for multi-lingual agent interactions | [README →](AgentFramework/Python/Middleware/AzureLanguage/language_middleware/README.md) |
+| `azureaicommunity-agent-pii-middleware` | [![PyPI](https://img.shields.io/pypi/v/azureaicommunity-agent-pii-middleware)](https://pypi.org/project/azureaicommunity-agent-pii-middleware/) | `pip install`<br>`azureaicommunity-agent-pii-middleware` | PII detection and blocking before sensitive data reaches the LLM | [README →](AgentFramework/Python/Middleware/pii_middleware/README.md) |
 
 ---
 
 ## 🔷 .NET Packages
 
-.NET packages are planned and will be published to [NuGet](https://www.nuget.org/). See the `AgentFramework/DotNet/` folder when available.
+All .NET packages are published to [NuGet](https://www.nuget.org/search?q=AzureAICommunity.Agent) and integrate with `Microsoft.Extensions.AI` via the `AsBuilder().Use(...)` pipeline pattern.
 
+📖 [.NET Middleware overview →](AgentFramework/dotnet/AzureAICommunityAgent/Middleware/README.md)
+
+### Available Packages
+
+| Package | Version | Install | Description | Docs |
+|---|---|---|---|---|
+| `AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware` | [![NuGet](https://img.shields.io/nuget/v/AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware)](https://www.nuget.org/packages/AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware/) | `dotnet add package AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware` | PII detection and enforcement (Allow / Mask / Block) before sensitive data reaches the LLM | [README →](AgentFramework/dotnet/AzureAICommunityAgent/Middleware/PIIChatDetectionMiddleware/README.md) |
 
 ---
 
