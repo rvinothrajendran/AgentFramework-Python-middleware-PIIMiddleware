@@ -87,12 +87,13 @@ public class PIIChatDetectionMiddleware(
 
         // Merge overlapping ranges so masking always covers the furthest overlapping end.
         // When ranges share a start, the sort order still ensures the longest match is considered first.
+        // Tie-breaking: when two overlapping detections have equal span length, the first one's type is kept.
         var selected = new List<(int Start, int End, string Type)>();
 
         var currentStart = sorted[0].Start;
         var currentEnd = sorted[0].End;
         var currentType = sorted[0].Type;
-        var currentSpanLength = sorted[0].End - sorted[0].Start;
+        var currentSpanLength = currentEnd - currentStart;
 
         foreach (var d in sorted.Skip(1))
         {
