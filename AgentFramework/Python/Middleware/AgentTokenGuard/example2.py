@@ -2,10 +2,7 @@ import asyncio
 import json
 import logging
 import os
-import sys
 from typing import Any
-
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s - %(name)s - %(message)s")
 
@@ -13,7 +10,7 @@ from agent_framework import Agent
 from agent_framework.ollama import OllamaChatClient
 
 from token_guard_middleware import TokenGuardMiddleware
-from token_guard_middleware.token_tracker import QuotaExceededError, QuotaStore
+from token_guard_middleware.token_tracker import QuotaExceededError
 
 
 # ---------------------------------------------------------------------------
