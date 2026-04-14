@@ -4,7 +4,7 @@
 
 A collection of plug-and-play middleware packages for AI agent pipelines built on **Microsoft.Extensions.AI**.
 
-[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue)](../../../../LICENSE)
 
 </div>
 

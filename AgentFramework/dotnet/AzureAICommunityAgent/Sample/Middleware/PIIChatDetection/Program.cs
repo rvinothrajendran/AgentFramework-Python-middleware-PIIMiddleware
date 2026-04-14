@@ -11,9 +11,9 @@ internal class Program
     const string Model    = "llama3.2";
 
     const string PiiMessage =
-        "Hi, my name is Vinoth. " +
-        "Email: r.vinoth@live.com. " +
-        "Phone: +91-800-555-0199. " +
+        "Hi, my name is Sample User. " +
+        "Email: user@example.com. " +
+        "Phone: +1-555-0100. " +
         "IP: 192.168.1.1.";
 
     // Theme color per policy — chosen to stand out on a black background.

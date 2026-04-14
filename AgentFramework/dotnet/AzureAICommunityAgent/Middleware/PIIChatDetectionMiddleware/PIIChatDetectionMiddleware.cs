@@ -55,7 +55,7 @@ public class PIIChatDetectionMiddleware(
         Add(SequenceRecognizer.RecognizeEmail(text, culture));
         Add(SequenceRecognizer.RecognizePhoneNumber(text, culture));
         Add(SequenceRecognizer.RecognizeIpAddress(text, culture));
-        Add(SequenceExtensions.RecognizeCreditCard(text, culture));
+        Add(SequenceExtensions.RecognizeCreditCard(text));
         Add(NumberRecognizer.RecognizeNumber(text, culture));
         Add(DateTimeRecognizer.RecognizeDateTime(text, culture));
         Add(NumberWithUnitRecognizer.RecognizeDimension(text, culture));
@@ -85,19 +85,40 @@ public class PIIChatDetectionMiddleware(
         if (sorted.Count == 0)
             return text;
 
-        // Keep non-overlapping ranges only; when ranges share a start, longest wins.
-        // Iterating in start-order means we can greedily track the furthest end seen so far.
-        var selected = new List<Detection>();
-        var maxEnd = -1;
+        // Merge overlapping ranges so masking always covers the furthest overlapping end.
+        // When ranges share a start, the sort order still ensures the longest match is considered first.
+        var selected = new List<(int Start, int End, string Type)>();
 
-        foreach (var d in sorted)
+        var currentStart = sorted[0].Start;
+        var currentEnd = sorted[0].End;
+        var currentType = sorted[0].Type;
+        var currentSpanLength = sorted[0].End - sorted[0].Start;
+
+        foreach (var d in sorted.Skip(1))
         {
-            if (d.Start <= maxEnd)
-                continue;
+            if (d.Start <= currentEnd)
+            {
+                if (d.End > currentEnd)
+                    currentEnd = d.End;
 
-            selected.Add(d);
-            maxEnd = d.End;
+                var detectionSpanLength = d.End - d.Start;
+                if (detectionSpanLength > currentSpanLength)
+                {
+                    currentType = d.Type;
+                    currentSpanLength = detectionSpanLength;
+                }
+
+                continue;
+            }
+
+            selected.Add((currentStart, currentEnd, currentType));
+            currentStart = d.Start;
+            currentEnd = d.End;
+            currentType = d.Type;
+            currentSpanLength = d.End - d.Start;
         }
+
+        selected.Add((currentStart, currentEnd, currentType));
 
         var counters = new Dictionary<string, int>();
         var replacements = new List<(int Start, int Length, string Token)>();
@@ -139,10 +160,12 @@ public class PIIChatDetectionMiddleware(
             return await base.GetResponseAsync(messages, options, cancellationToken);
 
         var messageList = messages.ToList();
-        var last = messageList.LastOrDefault();
+        var lastUserIndex = messageList.FindLastIndex(m => m.Role == ChatRole.User);
 
-        if (string.IsNullOrEmpty(last?.Text))
+        if (lastUserIndex < 0 || string.IsNullOrEmpty(messageList[lastUserIndex].Text))
             return await base.GetResponseAsync(messageList, options, cancellationToken);
+
+        var last = messageList[lastUserIndex];
 
         var detections = Detect(last.Text)
             .Where(d => !_allowList.Contains(d.Type))
@@ -180,7 +203,7 @@ public class PIIChatDetectionMiddleware(
             var updatedLast = last.Clone();
             updatedLast.Contents.Clear();
             updatedLast.Contents.Add(new TextContent(maskedText));
-            messageList[^1] = updatedLast;
+            messageList[lastUserIndex] = updatedLast;
         }
 
         return await base.GetResponseAsync(messageList, options, cancellationToken);
@@ -204,14 +227,16 @@ public class PIIChatDetectionMiddleware(
         }
 
         var messageList = messages.ToList();
-        var last = messageList.LastOrDefault();
+        var lastUserIndex = messageList.FindLastIndex(m => m.Role == ChatRole.User);
 
-        if (string.IsNullOrEmpty(last?.Text))
+        if (lastUserIndex < 0 || string.IsNullOrEmpty(messageList[lastUserIndex].Text))
         {
             await foreach (var update in base.GetStreamingResponseAsync(messageList, options, cancellationToken))
                 yield return update;
             yield break;
         }
+
+        var last = messageList[lastUserIndex];
 
         var detections = Detect(last.Text)
             .Where(d => !_allowList.Contains(d.Type))
@@ -255,7 +280,7 @@ public class PIIChatDetectionMiddleware(
             var updatedLast = last.Clone();
             updatedLast.Contents.Clear();
             updatedLast.Contents.Add(new TextContent(maskedText));
-            messageList[^1] = updatedLast;
+            messageList[lastUserIndex] = updatedLast;
         }
 
         await foreach (var update in base.GetStreamingResponseAsync(messageList, options, cancellationToken))
