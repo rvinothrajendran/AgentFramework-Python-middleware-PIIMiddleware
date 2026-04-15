@@ -49,7 +49,8 @@ All .NET packages are published to [NuGet](https://www.nuget.org/search?q=AzureA
 
 | Package | Version | Install | Description | Docs |
 |---|---|---|---|---|
-| `AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware` | [![NuGet](https://img.shields.io/nuget/v/AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware)](https://www.nuget.org/packages/AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware/) | `dotnet add package AzureAICommunity.Agent.Middleware`<br>`.PIIChatDetectionMiddleware` | PII detection and enforcement (Allow / Mask / Block) before sensitive data reaches the LLM | [README →](AgentFramework/dotnet/AzureAICommunityAgent/Middleware/PIIChatDetectionMiddleware/README.md) |
+| `AzureAICommunity.Agent`<br>`.Middleware.PIIChatDetectionMiddleware` | [![NuGet](https://img.shields.io/nuget/v/AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware)](https://www.nuget.org/packages/AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware/) | `dotnet add package`<br>`AzureAICommunity.Agent`<br>`.Middleware.PIIChatDetectionMiddleware` | PII detection and enforcement (Allow / Mask / Block) before sensitive data reaches the LLM | [README →](AgentFramework/dotnet/AzureAICommunityAgent/Middleware/PIIChatDetectionMiddleware/README.md) |
+| `AzureAICommunity.Agent`<br>`.Middleware.TokenUsageMiddleware` | [![NuGet](https://img.shields.io/nuget/v/AzureAICommunity.Agent.Middleware.TokenUsageMiddleware)](https://www.nuget.org/packages/AzureAICommunity.Agent.Middleware.TokenUsageMiddleware/) | `dotnet add package`<br>`AzureAICommunity.Agent`<br>`.Middleware.TokenUsageMiddleware` | Per-user token quota enforcement and detailed usage metrics for every AI agent completion call | [README →](AgentFramework/dotnet/AzureAICommunityAgent/Middleware/TokenUsageMiddleware/README.md) |
 
 ---
 

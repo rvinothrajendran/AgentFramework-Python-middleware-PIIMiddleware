@@ -17,6 +17,7 @@ This folder contains .NET middleware packages that extend `Microsoft.Extensions.
 | Package | NuGet | Description | Docs |
 |---|---|---|---|
 | `AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware` | [![NuGet](https://img.shields.io/nuget/v/AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware)](https://www.nuget.org/packages/AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware/) | PII detection and enforcement (Allow / Mask / Block) before sensitive data reaches the LLM | [README →](PIIChatDetectionMiddleware/README.md) |
+| `AzureAICommunity.Agent.Middleware.TokenUsageMiddleware` | [![NuGet](https://img.shields.io/nuget/v/AzureAICommunity.Agent.Middleware.TokenUsageMiddleware)](https://www.nuget.org/packages/AzureAICommunity.Agent.Middleware.TokenUsageMiddleware/) | Per-user token quota enforcement and detailed usage metrics for every AI agent completion call | [README →](TokenUsageMiddleware/README.md) |
 
 ---
 
@@ -32,5 +33,22 @@ Scans every user message for personally identifiable information (PII) and enfor
 
 📦 `dotnet add package AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware`  
 📖 [Full documentation](PIIChatDetectionMiddleware/README.md)
+
+---
+
+## 🪙 Token Usage Middleware
+
+Enforces **per-user token quotas** and captures **detailed usage metrics** across every AI agent completion call. Blocks requests before the LLM is ever called when a user's quota is exhausted, and emits a `TokenUsageRecord` after every successful completion.
+
+- Pre-call quota enforcement with `QuotaExceededException` on exhaustion
+- Post-call usage recording via `onUsage` callback
+- Flexible quota periods — `Day`, `Week`, `Month`, or any custom delegate
+- Pluggable storage — `InMemoryQuotaStore` for development; bring your own Redis/SQL backend
+- `onQuotaExceeded` hook for logging and alerting before the exception is thrown
+- Full streaming support (`GetStreamingResponseAsync`)
+- Drops into any `Microsoft.Extensions.AI` pipeline
+
+📦 `dotnet add package AzureAICommunity.Agent.Middleware.TokenUsageMiddleware`  
+📖 [Full documentation](TokenUsageMiddleware/README.md)
 
 ---

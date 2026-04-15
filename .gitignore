@@ -20,8 +20,10 @@ TestResults/
 *.nupkg
 *.snupkg
 nuget.config
-!**/nuget.config
 *.nuspec
+
+# PowerShell scripts
+*.ps1
 packages/
 project.lock.json
 project.fragment.lock.json
