@@ -2,11 +2,7 @@
 import asyncio
 import json
 import logging
-import os
-import sys
 from typing import Any
-
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s - %(name)s - %(message)s")
 

@@ -19,8 +19,8 @@
         <!-- ── Licensing and project links ───────────────────────── -->
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-        <PackageProjectUrl>https://github.com/rvinothrajendran/AgentFramework</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/rvinothrajendran/AgentFramework</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/AzureAICommunity/AgentFramework</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/AzureAICommunity/AgentFramework</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
 
         <!-- ── Package assets ────────────────────────────────────── -->
@@ -32,9 +32,6 @@
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <Deterministic>true</Deterministic>
 
-        <!-- Suppress NU1904: NuGet.CommandLine vulnerability is a transitive dep of
-             Microsoft.Recognizers.Text — not directly controlled by this project. -->
-        <NoWarn>$(NoWarn);NU1904</NoWarn>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     </PropertyGroup>
 
@@ -52,6 +49,8 @@
       <PackageReference Include="Microsoft.Recognizers.Text.DateTime" Version="1.8.13" />
       <PackageReference Include="Microsoft.Recognizers.Text.Number" Version="1.8.13" />
       <PackageReference Include="Microsoft.Recognizers.Text.Sequence" Version="1.8.13" />
+      <!-- Pin vulnerable transitive dependency pulled in by Microsoft.Recognizers.Text to a patched version. -->
+      <PackageReference Include="NuGet.CommandLine" Version="5.11.6" />
     </ItemGroup>
 
     <ItemGroup>

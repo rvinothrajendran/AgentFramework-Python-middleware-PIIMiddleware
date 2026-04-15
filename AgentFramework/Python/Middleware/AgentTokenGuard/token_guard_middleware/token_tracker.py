@@ -48,7 +48,8 @@ def day_key() -> str:
 
 
 def week_key() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-W%W")
+    iso_year, iso_week, _ = datetime.now(timezone.utc).isocalendar()
+    return f"{iso_year}-W{iso_week:02d}"
 
 
 def utc_now_key() -> str:

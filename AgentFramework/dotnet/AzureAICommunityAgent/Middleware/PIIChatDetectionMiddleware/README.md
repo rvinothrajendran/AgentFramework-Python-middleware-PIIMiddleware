@@ -6,7 +6,7 @@ Secure AI agent pipelines by detecting and controlling **personally identifiable
 
 [![NuGet Version](https://img.shields.io/nuget/v/AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware)](https://www.nuget.org/packages/AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware/)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware)](https://www.nuget.org/packages/AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware/)
-[![License](https://img.shields.io/github/license/AzureAICommunity/AgentFramework)](LICENSE)
+[![License](https://img.shields.io/github/license/AzureAICommunity/AgentFramework)](https://github.com/AzureAICommunity/AgentFramework/blob/main/LICENSE)
 [![.NET](https://img.shields.io/badge/.NET-10.0-512BD4)](https://dotnet.microsoft.com/)
 
 **Intercept, detect, and block sensitive personal data before it reaches your LLM — with zero friction.**
@@ -59,7 +59,7 @@ IChatClient client = ollamaClient
 
 var response = await client.GetResponseAsync("My email is user@example.com");
 Console.WriteLine(response.Message.Text);
-// → "Message blocked due to sensitive data: builtin.email"
+// → "Message blocked due to sensitive data: email"
 ```
 
 ---
@@ -103,7 +103,7 @@ Fine-tune which PII types are enforced using `allowList` and `blockList`:
 var client = ollamaClient.AsBuilder()
     .Use(inner => new PIIChatDetectionMiddleware(
         inner,
-        blockList: ["builtin.email", "builtin.phonenumber"],
+        blockList: ["email", "phonenumber"],
         policy: PIIPolicy.Block))
     .Build();
 
@@ -111,7 +111,7 @@ var client = ollamaClient.AsBuilder()
 var client = ollamaClient.AsBuilder()
     .Use(inner => new PIIChatDetectionMiddleware(
         inner,
-        allowList: ["builtin.datetimeV2"],
+        allowList: ["datetimeV2.date", "datetimeV2.datetime", "datetimeV2.time"],
         policy: PIIPolicy.Mask))
     .Build();
 ```
@@ -126,13 +126,13 @@ The middleware uses Microsoft Recognizers Text to identify the following entity 
 
 | Entity | Example |
 |---|---|
-| `builtin.email` | `user@example.com` |
-| `builtin.phonenumber` | `+91-800-555-0199` |
-| `builtin.ip` | `192.168.1.1` |
-| Credit card numbers | `4111 1111 1111 1111` |
-| `builtin.number` | `42`, `3.14` |
-| `builtin.datetimeV2` | `tomorrow at 3pm`, `2026-04-14` |
-| `builtin.dimension` | `5 kg`, `10 miles` |
+| `email` | `user@example.com` |
+| `phonenumber` | `+1-555-0100` |
+| `ip` | `192.168.1.1` |
+| `creditcard` | `4111 1111 1111 1111` |
+| `number` | `42`, `3.14` |
+| `datetimeV2.date` / `datetimeV2.datetime` | `tomorrow at 3pm`, `2026-04-14` |
+| `dimension` | `5 kg`, `10 miles` |
 
 ---
 

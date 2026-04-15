@@ -9,9 +9,7 @@ public static class SequenceExtensions
     private static readonly Regex CardRegex =
         new(@"\b(?:\d[ -]*?){13,19}\b", RegexOptions.Compiled);
 
-    public static IEnumerable<ModelResult> RecognizeCreditCard(
-        string text,
-        string culture = Culture.English)
+    public static IEnumerable<ModelResult> RecognizeCreditCard(string text)
     {
         var results = new List<ModelResult>();
 
