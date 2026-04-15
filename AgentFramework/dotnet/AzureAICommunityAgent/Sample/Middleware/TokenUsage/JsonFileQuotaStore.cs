@@ -68,9 +68,30 @@ public sealed class JsonFileQuotaStore : IQuotaStore
         if (!File.Exists(filePath))
             return [];
 
-        var json = File.ReadAllText(filePath);
-        return JsonSerializer.Deserialize<Dictionary<string, long>>(json) ?? [];
+        try
+        {
+            var json = File.ReadAllText(filePath);
+            if (string.IsNullOrWhiteSpace(json))
+                return [];
+
+            return JsonSerializer.Deserialize<Dictionary<string, long>>(json) ?? [];
+        }
+        catch (JsonException)
+        {
+            return [];
+        }
+        catch (IOException)
+        {
+            return [];
+        }
     }
 
-    private static string Key(string userId, string periodKey) => $"{userId}|{periodKey}";
+    private static string Key(string userId, string periodKey)
+    {
+        // Escape any backslashes first, then escape pipes, so the composite key
+        // is unambiguous even when userId or periodKey contains '|' characters.
+        var escapedUserId    = userId.Replace(@"\", @"\\").Replace("|", @"\|");
+        var escapedPeriodKey = periodKey.Replace(@"\", @"\\").Replace("|", @"\|");
+        return $"{escapedUserId}|{escapedPeriodKey}";
+    }
 }

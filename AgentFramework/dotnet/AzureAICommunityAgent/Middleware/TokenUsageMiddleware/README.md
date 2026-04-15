@@ -6,7 +6,7 @@ Enforce **per-user token quotas** and capture **detailed usage metrics** across 
 
 [![NuGet Version](https://img.shields.io/nuget/v/AzureAICommunity.Agent.Middleware.TokenUsageMiddleware)](https://www.nuget.org/packages/AzureAICommunity.Agent.Middleware.TokenUsageMiddleware/)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/AzureAICommunity.Agent.Middleware.TokenUsageMiddleware)](https://www.nuget.org/packages/AzureAICommunity.Agent.Middleware.TokenUsageMiddleware/)
-[![License](https://img.shields.io/github/license/AzureAICommunity/AgentFramework)](LICENSE)
+[![License](https://img.shields.io/github/license/AzureAICommunity/AgentFramework)](https://github.com/rvinothrajendran/AgentFramework/blob/main/LICENSE)
 [![.NET](https://img.shields.io/badge/.NET-10.0-512BD4)](https://dotnet.microsoft.com/)
 
 **Track, throttle, and bill token consumption per user — with zero friction.**

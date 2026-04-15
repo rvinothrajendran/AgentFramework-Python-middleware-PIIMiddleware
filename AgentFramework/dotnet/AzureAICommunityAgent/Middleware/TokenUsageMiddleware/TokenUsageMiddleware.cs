@@ -1,5 +1,4 @@
 using System.Runtime.CompilerServices;
-using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 
 namespace AzureAICommunity.Agent.Middleware.TokenUsageMiddleware;

@@ -24,6 +24,9 @@ nuget.config
 
 # PowerShell scripts
 *.ps1
+
+# Editor backup/temp artifacts
+*.Backup.tmp
 packages/
 project.lock.json
 project.fragment.lock.json

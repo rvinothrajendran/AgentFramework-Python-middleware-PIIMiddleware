@@ -157,15 +157,17 @@ internal class Program
         ConsoleUI.Println(ConsoleColor.Cyan, "─── JSON-Backed Quota Store (Vinoth) ───────────────────");
 
         const string jsonPath = "quota-store.json";
+        const string userId   = "Vinoth";
 
         // JsonFileQuotaStore loads existing totals from disk on construction,
         // so token usage accumulates across process restarts.
         var jsonStore = new JsonFileQuotaStore(jsonPath);
+        var period    = PeriodKeys.Month();
 
         ConsoleUI.Println(ConsoleColor.DarkGray,
             $"  ℹ persisting to: {Path.GetFullPath(jsonPath)}");
         ConsoleUI.Println(ConsoleColor.DarkGray,
-            $"  ℹ usage before call: {jsonStore.GetUsage("Vinoth", PeriodKeys.Month())} tokens");
+            $"  ℹ usage before call: {jsonStore.GetUsage(userId, period)} tokens");
 
         var client = ollamaClient
             .AsBuilder()
@@ -176,7 +178,7 @@ internal class Program
                 onUsage:     OnUsageAsync))
             .Build();
 
-        var options = new ChatOptions { AdditionalProperties = new() { ["user_id"] = "Vinoth" } };
+        var options = new ChatOptions { AdditionalProperties = new() { ["user_id"] = userId } };
 
         try
         {
@@ -185,7 +187,7 @@ internal class Program
 
             ConsoleUI.Println(ConsoleColor.White, $"  → {response.Text}");
             ConsoleUI.Println(ConsoleColor.DarkGray,
-                $"  ℹ usage after call:  {jsonStore.GetUsage("Vinoth", PeriodKeys.Month())} tokens");
+                $"  ℹ usage after call:  {jsonStore.GetUsage(userId, period)} tokens");
             ConsoleUI.Println(ConsoleColor.DarkGray,
                 $"  ℹ check file:        {Path.GetFullPath(jsonPath)}");
         }

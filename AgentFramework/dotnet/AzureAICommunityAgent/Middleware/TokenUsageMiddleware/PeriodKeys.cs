@@ -17,11 +17,8 @@ public static class PeriodKeys
     public static string Week()
     {
         var now = DateTimeOffset.UtcNow;
-        var cal = System.Globalization.CultureInfo.InvariantCulture.Calendar;
-        int week = cal.GetWeekOfYear(
-            now.DateTime,
-            System.Globalization.CalendarWeekRule.FirstFourDayWeek,
-            DayOfWeek.Monday);
-        return $"{now.Year:D4}-W{week:D2}";
+        int isoYear = System.Globalization.ISOWeek.GetYear(now.UtcDateTime);
+        int week = System.Globalization.ISOWeek.GetWeekOfYear(now.UtcDateTime);
+        return $"{isoYear:D4}-W{week:D2}";
     }
 }
