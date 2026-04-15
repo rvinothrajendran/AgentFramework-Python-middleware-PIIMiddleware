@@ -76,22 +76,20 @@ public sealed class JsonFileQuotaStore : IQuotaStore
 
             return JsonSerializer.Deserialize<Dictionary<string, long>>(json) ?? [];
         }
-        catch (JsonException)
+        catch (JsonException ex)
         {
+            Console.Error.WriteLine($"[JsonFileQuotaStore] Could not parse quota file '{filePath}': {ex.Message}. Starting with empty quota data.");
             return [];
         }
-        catch (IOException)
+        catch (IOException ex)
         {
+            Console.Error.WriteLine($"[JsonFileQuotaStore] Could not read quota file '{filePath}': {ex.Message}. Starting with empty quota data.");
             return [];
         }
     }
 
     private static string Key(string userId, string periodKey)
-    {
-        // Escape any backslashes first, then escape pipes, so the composite key
-        // is unambiguous even when userId or periodKey contains '|' characters.
-        var escapedUserId    = userId.Replace(@"\", @"\\").Replace("|", @"\|");
-        var escapedPeriodKey = periodKey.Replace(@"\", @"\\").Replace("|", @"\|");
-        return $"{escapedUserId}|{escapedPeriodKey}";
-    }
+        // Uri.EscapeDataString percent-encodes any character that is not unreserved,
+        // so the composite key is unambiguous regardless of the content of either part.
+        => $"{Uri.EscapeDataString(userId)}|{Uri.EscapeDataString(periodKey)}";
 }
