@@ -12,6 +12,7 @@ obj/
 
 # .NET test results
 TestResults/
+Tests/
 *.trx
 *.coverage
 *.coveragexml
@@ -47,6 +48,8 @@ env/
 .pytest_cache/
 .coverage
 htmlcov/
+tests/
+test/
 
 # IDE
 .vscode/
@@ -58,3 +61,13 @@ Thumbs.db
 
 # PyPI credentials
 .pypirc
+
+# Sensitive config / secrets
+.env
+*.env
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.json
+local.settings.json
+secrets.json
+UserSecrets/

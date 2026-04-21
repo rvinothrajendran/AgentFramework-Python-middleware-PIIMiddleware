@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>AzureAICommunity.Agent.Middleware.ContextCompressionMiddleware</AssemblyName>
+        <RootNamespace>AzureAICommunity.Agent.Middleware.ContextCompressionMiddleware</RootNamespace>
+
+        <!-- ── NuGet package identity ────────────────────────────── -->
+        <PackageId>AzureAICommunity.Agent.Middleware.ContextCompressionMiddleware</PackageId>
+        <Version>1.0.0</Version>
+        <Title>AzureAICommunity – Context Compression Middleware</Title>
+        <Authors>Vinoth Rajendran</Authors>
+        <Copyright>Copyright © 2026 Vinoth Rajendran – AzureAICommunity</Copyright>
+        <Description>A plug-and-play context compression middleware for Microsoft.Extensions.AI chat pipelines. Automatically summarises older conversation history when the estimated token count approaches a configurable threshold, preventing context-window overflow while preserving recent messages and key facts.</Description>
+        <PackageTags>context;compression;summarization;ai;middleware;chat;extensions-ai;token;llm;agent;microsoft-extensions-ai;dotnet</PackageTags>
+
+        <!-- ── Licensing and project links ───────────────────────── -->
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageProjectUrl>https://github.com/rvinothrajendran/AgentFramework</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/rvinothrajendran/AgentFramework</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+
+        <!-- ── Package assets ────────────────────────────────────── -->
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+
+        <!-- ── Symbol / determinism ──────────────────────────────── -->
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <Deterministic>true</Deterministic>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Include="README.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.AI" Version="10.4.1" />
+    </ItemGroup>
+
+</Project>

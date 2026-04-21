@@ -9,10 +9,12 @@ Token usage tracking and quota enforcement middleware for AI agent applications 
 ![PyPI Downloads](https://static.pepy.tech/badge/azureaicommunity-agent-token-guard)
 [![License](https://img.shields.io/pypi/l/azureaicommunity-agent-token-guard)](https://pypi.org/project/azureaicommunity-agent-token-guard/)
 [![PyPI Status](https://img.shields.io/pypi/status/azureaicommunity-agent-token-guard)](https://pypi.org/project/azureaicommunity-agent-token-guard/)
+[![GitHub Follow](https://img.shields.io/github/followers/rvinothrajendran?label=Follow%20%40rvinothrajendran&style=social)](https://github.com/rvinothrajendran)
+[![YouTube Channel](https://img.shields.io/badge/YouTube-VinothRajendran-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/@VinothRajendran)
+[![YouTube Subscribers](https://img.shields.io/youtube/channel/subscribers/UCQf_yRJpsfyEiWWpt1MZ6vA?label=Subscribers&style=social)](https://www.youtube.com/@VinothRajendran)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-rvinothrajendran-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rvinothrajendran/)
 
-
-
-**Track every token, enforce every limit — supports all providers, both streaming and non-streaming.**
+**Track every token
 
 [Getting Started](#-installation) · [Configuration](#️-configuration) · [Usage](#-usage) · [Contributing](#-contributing)
 
@@ -222,6 +224,16 @@ Contributions are welcome! Please open an issue to discuss what you'd like to ch
 3. Commit your changes (`git commit -m 'Add my feature'`)
 4. Push to the branch (`git push origin feature/my-feature`)
 5. Open a Pull Request
+
+---
+
+## 👤 Author
+
+Built and maintained by **Vinoth Rajendran**.
+
+- 🐙 GitHub: [github.com/rvinothrajendran](https://github.com/rvinothrajendran) — _follow for more projects!_
+- 📺 YouTube: [youtube.com/@VinothRajendran](https://www.youtube.com/@VinothRajendran) — _subscribe for tutorials and demos!_
+- 💼 LinkedIn: [linkedin.com/in/rvinothrajendran](https://www.linkedin.com/in/rvinothrajendran/) — _let's connect!_
 
 ---
 

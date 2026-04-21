@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>AzureAICommunity.Agent.Middleware.LanguageTranslationMiddleware</AssemblyName>
+        <RootNamespace>AzureAICommunity.Agent.Middleware.LanguageTranslationMiddleware</RootNamespace>
+
+        <!-- ── NuGet package identity ────────────────────────────── -->
+        <PackageId>AzureAICommunity.Agent.Middleware.LanguageTranslationMiddleware</PackageId>
+        <Version>1.0.0</Version>
+        <Title>AzureAICommunity – Language Translation Middleware</Title>
+        <Authors>Vinoth Rajendran</Authors>
+        <Copyright>Copyright © 2026 Vinoth Rajendran – AzureAICommunity</Copyright>
+        <Description>A plug-and-play language translation middleware for Microsoft.Extensions.AI chat pipelines. Automatically detects the user's language, translates incoming messages to the agent's target language, and back-translates the response — using Azure Translator with an optional LLM agent as fallback.</Description>
+        <PackageTags>language;translation;ai;middleware;chat;extensions-ai;azure-translator;detection;llm;agent;microsoft-extensions-ai;dotnet;i18n</PackageTags>
+
+        <!-- ── Licensing and project links ───────────────────────── -->
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageProjectUrl>https://github.com/AzureAICommunity/AgentFramework</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/AzureAICommunity/AgentFramework</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+
+        <!-- ── Package assets ────────────────────────────────────── -->
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>icon.jpg</PackageIcon>
+
+        <!-- ── Symbol / determinism ──────────────────────────────── -->
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <Deterministic>true</Deterministic>
+
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Include="README.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+      <None Include="icon.jpg" Condition="Exists('icon.jpg')">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Azure.AI.Translation.Text" Version="1.0.0" />
+        <PackageReference Include="Microsoft.Extensions.AI" Version="10.4.1" />
+    </ItemGroup>
+
+</Project>

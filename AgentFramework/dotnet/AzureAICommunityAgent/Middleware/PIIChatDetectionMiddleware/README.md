@@ -6,10 +6,15 @@ Secure AI agent pipelines by detecting and controlling **personally identifiable
 
 [![NuGet Version](https://img.shields.io/nuget/v/AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware)](https://www.nuget.org/packages/AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware/)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware)](https://www.nuget.org/packages/AzureAICommunity.Agent.Middleware.PIIChatDetectionMiddleware/)
-[![License](https://img.shields.io/github/license/AzureAICommunity/AgentFramework)](https://github.com/AzureAICommunity/AgentFramework/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/rvinothrajendran/AgentFramework)](https://github.com/rvinothrajendran/AgentFramework/blob/main/LICENSE)
 [![.NET](https://img.shields.io/badge/.NET-10.0-512BD4)](https://dotnet.microsoft.com/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-AgentFramework-181717?logo=github)](https://github.com/rvinothrajendran/AgentFramework)
+[![GitHub Follow](https://img.shields.io/github/followers/rvinothrajendran?label=Follow%20%40rvinothrajendran&style=social)](https://github.com/rvinothrajendran)
+[![YouTube Channel](https://img.shields.io/badge/YouTube-VinothRajendran-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/@VinothRajendran)
+[![YouTube Subscribers](https://img.shields.io/youtube/channel/subscribers/UCQf_yRJpsfyEiWWpt1MZ6vA?label=Subscribers&style=social)](https://www.youtube.com/@VinothRajendran)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-rvinothrajendran-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rvinothrajendran/)
 
-**Intercept, detect, and block sensitive personal data before it reaches your LLM — with zero friction.**
+**Intercept
 
 [Getting Started](#-installation) · [Policies](#️-pii-policies) · [Customization](#-custom-entity-lists) · [Contributing](#-contributing)
 
@@ -169,11 +174,23 @@ public PIIChatDetectionMiddleware(
 
 Contributions are welcome! Please open an issue to discuss what you'd like to change before submitting a pull request.
 
+📁 **Repository:** [https://github.com/rvinothrajendran/AgentFramework](https://github.com/rvinothrajendran/AgentFramework)
+
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/my-feature`)
 3. Commit your changes (`git commit -m 'Add my feature'`)
 4. Push to the branch (`git push origin feature/my-feature`)
 5. Open a Pull Request
+
+---
+
+## 👤 Author
+
+Built and maintained by **Vinoth Rajendran**.
+
+- 🐙 GitHub: [github.com/rvinothrajendran](https://github.com/rvinothrajendran) — _follow for more projects!_
+- 📺 YouTube: [youtube.com/@VinothRajendran](https://www.youtube.com/@VinothRajendran) — _subscribe for tutorials and demos!_
+- 💼 LinkedIn: [linkedin.com/in/rvinothrajendran](https://www.linkedin.com/in/rvinothrajendran/) — _let's connect!_
 
 ---
 

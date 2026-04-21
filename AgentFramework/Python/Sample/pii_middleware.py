@@ -4,7 +4,7 @@ import asyncio
 from agent_framework.ollama import OllamaChatClient
 from agent_framework import Agent
 
-from agent_pii_security import PIIMiddleware
+from pii_middleware import PIIMiddleware
 
 # Basic example
 middleware = (

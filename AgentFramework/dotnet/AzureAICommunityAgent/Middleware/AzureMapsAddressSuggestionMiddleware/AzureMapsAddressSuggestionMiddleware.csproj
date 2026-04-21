@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>AzureAICommunity.Agent.Middleware.AzureMapsAddressSuggestionMiddleware</AssemblyName>
+        <RootNamespace>AzureAICommunity.Agent.Middleware.AzureMapsAddressSuggestionMiddleware</RootNamespace>
+
+        <!-- ── NuGet package identity ────────────────────────────── -->
+        <PackageId>AzureAICommunity.Agent.Middleware.AzureMapsAddressSuggestionMiddleware</PackageId>
+        <Version>1.0.0</Version>
+        <Title>AzureAICommunity – Azure Maps Address Suggestion Middleware</Title>
+        <Authors>Vinoth Rajendran</Authors>
+        <Copyright>Copyright © 2026 Vinoth Rajendran – AzureAICommunity</Copyright>
+        <Description>Azure Maps address suggestion middleware for Microsoft.Extensions.AI agent pipelines. Exposes an AITool that an LLM agent can invoke to search for points of interest near a location using the Azure Maps Geocoding API. Integrates with AIAgentBuilder via UseMapsSearch() so no keys need to be embedded in user prompts.</Description>
+        <PackageTags>azure-maps;geocoding;address;suggestion;poi;tool;ai;middleware;chat;extensions-ai;agent;dotnet</PackageTags>
+
+        <!-- ── Licensing and project links ───────────────────────── -->
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageProjectUrl>https://github.com/AzureAICommunity/AgentFramework</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/AzureAICommunity/AgentFramework</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+
+        <!-- ── Symbol / determinism ──────────────────────────────── -->
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <Deterministic>true</Deterministic>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+
+        <!-- ── Package assets ────────────────────────────────────── -->
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Azure.Maps.Search" Version="2.0.0-beta.5" />
+        <PackageReference Include="Microsoft.Agents.AI" Version="1.1.0" />
+        <PackageReference Include="Microsoft.Extensions.AI" Version="10.4.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="AzureAICommunity.Agent.Tests.Middleware.AzureMapsAddressSuggestionMiddleware" />
+        <InternalsVisibleTo Include="AzureMapsAddressSuggestionMiddleware.Tests" />
+    </ItemGroup>
+
+</Project>

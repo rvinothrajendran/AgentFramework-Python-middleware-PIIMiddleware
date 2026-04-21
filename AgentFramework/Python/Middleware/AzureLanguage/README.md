@@ -9,10 +9,12 @@ Automatic language detection, translation, and response back-translation middlew
 ![PyPI Downloads](https://static.pepy.tech/badge/azureaicommunity-agent-language-middleware)
 [![License](https://img.shields.io/pypi/l/azureaicommunity-agent-language-middleware)](https://pypi.org/project/azureaicommunity-agent-language-middleware/)
 [![PyPI Status](https://img.shields.io/pypi/status/azureaicommunity-agent-language-middleware)](https://pypi.org/project/azureaicommunity-agent-language-middleware/)
+[![GitHub Follow](https://img.shields.io/github/followers/rvinothrajendran?label=Follow%20%40rvinothrajendran&style=social)](https://github.com/rvinothrajendran)
+[![YouTube Channel](https://img.shields.io/badge/YouTube-VinothRajendran-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/@VinothRajendran)
+[![YouTube Subscribers](https://img.shields.io/youtube/channel/subscribers/UCQf_yRJpsfyEiWWpt1MZ6vA?label=Subscribers&style=social)](https://www.youtube.com/@VinothRajendran)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-rvinothrajendran-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rvinothrajendran/)
 
-
-
-**Your agent always reasons in its best language — your users always receive replies in theirs.**
+**Your agent always reasons
 
 [Getting Started](#-installation) · [Configuration](#️-configuration) · [Usage](#-usage) · [Contributing](#-contributing)
 
@@ -196,6 +198,16 @@ Contributions are welcome! Please open an issue to discuss what you'd like to ch
 3. Commit your changes (`git commit -m 'Add my feature'`)
 4. Push to the branch (`git push origin feature/my-feature`)
 5. Open a Pull Request
+
+---
+
+## 👤 Author
+
+Built and maintained by **Vinoth Rajendran**.
+
+- 🐙 GitHub: [github.com/rvinothrajendran](https://github.com/rvinothrajendran) — _follow for more projects!_
+- 📺 YouTube: [youtube.com/@VinothRajendran](https://www.youtube.com/@VinothRajendran) — _subscribe for tutorials and demos!_
+- 💼 LinkedIn: [linkedin.com/in/rvinothrajendran](https://www.linkedin.com/in/rvinothrajendran/) — _let's connect!_
 
 ---
 

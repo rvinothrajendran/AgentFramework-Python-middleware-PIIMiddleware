@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "azureaicommunity-agent-youtube-search"
+version = "1.0.0"
+description = "YouTube video search tools for AI agent pipelines"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Vinoth Rajendran", email = "r.vinoth@live.com" }]
+keywords = ["ai", "youtube", "search", "tools", "agent", "llm", "azure", "azure-ai", "community"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "aiohttp>=3.9.0",
+    "agent-framework",
+]
+
+[project.urls]
+Homepage = "https://github.com/rvinothrajendran/AgentFramework"
+Repository = "https://github.com/rvinothrajendran/AgentFramework"
+Issues = "https://github.com/rvinothrajendran/AgentFramework"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["youtube_search_module*"]

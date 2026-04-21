@@ -5,6 +5,10 @@
 A collection of plug-and-play middleware packages for AI agent pipelines built on the **Agent Framework**.
 
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![GitHub Follow](https://img.shields.io/github/followers/rvinothrajendran?label=Follow%20%40rvinothrajendran&style=social)](https://github.com/rvinothrajendran)
+[![YouTube Channel](https://img.shields.io/badge/YouTube-VinothRajendran-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/@VinothRajendran)
+[![YouTube Subscribers](https://img.shields.io/youtube/channel/subscribers/UCQf_yRJpsfyEiWWpt1MZ6vA?label=Subscribers&style=social)](https://www.youtube.com/@VinothRajendran)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-rvinothrajendran-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rvinothrajendran/)
 
 </div>
 
@@ -14,11 +18,13 @@ A collection of plug-and-play middleware packages for AI agent pipelines built o
 
 This folder contains middleware packages that extend `agent-framework` pipelines with cross-cutting capabilities. Each package is independently installable and can be composed together in the same pipeline.
 
-| Package | PyPI | Description | Docs |
-|---|---|---|---|
-| `azureaicommunity-agent-language-middleware` | [![PyPI](https://img.shields.io/pypi/v/azureaicommunity-agent-language-middleware)](https://pypi.org/project/azureaicommunity-agent-language-middleware/) | Automatic language detection, translation, and back-translation for multi-lingual agent interactions | [README →](AzureLanguage/language_middleware/README.md) |
-| `azureaicommunity-agent-pii-middleware` | [![PyPI](https://img.shields.io/pypi/v/azureaicommunity-agent-pii-middleware)](https://pypi.org/project/azureaicommunity-agent-pii-middleware/) | PII detection and blocking before sensitive data reaches the LLM | [README →](pii_middleware/README.md) |
-| `azureaicommunity-agent-token-guard` | [![PyPI](https://img.shields.io/pypi/v/azureaicommunity-agent-token-guard)](https://pypi.org/project/azureaicommunity-agent-token-guard/) | Token usage tracking and quota enforcement per user, per period | [README →](AgentTokenGuard/README.md) |
+| Package | PyPI | Downloads | Description | Docs |
+|---|---|---|---|---|
+| `azureaicommunity-agent-language-middleware` | [![PyPI](https://img.shields.io/pypi/v/azureaicommunity-agent-language-middleware)](https://pypi.org/project/azureaicommunity-agent-language-middleware/) | ![Downloads](https://static.pepy.tech/badge/azureaicommunity-agent-language-middleware) | Automatic language detection, translation, and back-translation for multi-lingual agent interactions | [README →](AzureLanguage/language_middleware/README.md) |
+| `azureaicommunity-agent-pii-middleware` | [![PyPI](https://img.shields.io/pypi/v/azureaicommunity-agent-pii-middleware)](https://pypi.org/project/azureaicommunity-agent-pii-middleware/) | ![Downloads](https://static.pepy.tech/badge/azureaicommunity-agent-pii-middleware) | PII detection and blocking before sensitive data reaches the LLM | [README →](pii_middleware/README.md) |
+| `azureaicommunity-agent-token-guard` | [![PyPI](https://img.shields.io/pypi/v/azureaicommunity-agent-token-guard)](https://pypi.org/project/azureaicommunity-agent-token-guard/) | ![Downloads](https://static.pepy.tech/badge/azureaicommunity-agent-token-guard) | Token usage tracking and quota enforcement per user, per period | [README →](AgentTokenGuard/README.md) |
+| `agentaicommunity-agent-context-compression` | [![PyPI](https://img.shields.io/pypi/v/agentaicommunity-agent-context-compression)](https://pypi.org/project/agentaicommunity-agent-context-compression/) | ![Downloads](https://static.pepy.tech/badge/agentaicommunity-agent-context-compression) | Automatic conversation history compression when token count approaches the context-window limit | [README →](ContextCompression/README.md) |
+| `agentaicommunity-agent-youtube-middleware` | [![PyPI](https://img.shields.io/pypi/v/agentaicommunity-agent-youtube-middleware)](https://pypi.org/project/agentaicommunity-agent-youtube-middleware/) | ![Downloads](https://static.pepy.tech/badge/agentaicommunity-agent-youtube-middleware) | YouTube video search tools for AI agent pipelines using the YouTube Data API v3 | [README →](YouTubeMiddleware/README.md) |
 
 ---
 
@@ -62,6 +68,46 @@ Tracks token usage per user and enforces configurable quotas — blocking calls 
 
 📦 `pip install azureaicommunity-agent-token-guard`  
 📖 [Full documentation](AgentTokenGuard/README.md)
+
+---
+
+## �️ Context Compression Middleware
+
+Automatically **summarises older conversation history** when the estimated token count approaches a configurable limit — preventing context-window overflow while keeping the most recent messages intact.
+
+- Pre-call token estimation using `tiktoken` with a configurable `trigger_ratio` (default 80 %)
+- Configurable recent-message window preserved verbatim (`keep_last_messages`)
+- Assistant + tool message pairs kept together during splitting
+- `on_threshold_reached` callback — return `False` to block instead of compress
+- Streaming support via transform/result hooks
+- Works with any `agent-framework` compatible LLM client
+
+📦 `pip install agentaicommunity-agent-context-compression`  
+📖 [Full documentation](ContextCompression/README.md)
+
+---
+
+## � YouTube Middleware
+
+Search YouTube videos directly from your AI agent pipeline using the **YouTube Data API v3**. Exposes a `search_youtube_videos` tool via the `YouTubeTools.create()` builder — wired into any agent as a standard `@tool`.
+
+- Async search via YouTube Data API v3
+- Configurable result count, offset (paging), and optional channel restriction
+- `YouTubeConfig` builder with `api_key`, `channel_id`, `max_results`, and `default_count`
+- Returns video titles, descriptions, and watch URLs
+
+📦 `pip install agentaicommunity-agent-youtube-middleware`  
+📖 [Full documentation](YouTubeMiddleware/README.md)
+
+---
+
+## �👤 Author
+
+Built and maintained by **Vinoth Rajendran**.
+
+- 🐙 GitHub: [github.com/rvinothrajendran](https://github.com/rvinothrajendran) — _follow for more projects!_
+- 📺 YouTube: [youtube.com/@VinothRajendran](https://www.youtube.com/@VinothRajendran) — _subscribe for tutorials and demos!_
+- 💼 LinkedIn: [linkedin.com/in/rvinothrajendran](https://www.linkedin.com/in/rvinothrajendran/) — _let's connect!_
 
 ---
 

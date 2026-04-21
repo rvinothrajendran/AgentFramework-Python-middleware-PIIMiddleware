@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentaicommunity-agent-context-compression"
+version = "0.1.0"
+description = "Context compression middleware for AI agent frameworks — automatically compresses conversation history when token limits are approached"
+authors = [{name = "Agent AI Community"}]
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = [
+    "tiktoken>=0.7.0",
+    "agent-framework",
+]
+keywords = ["ai", "agent", "middleware", "context", "compression", "tokens", "llm"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.urls]
+Homepage = "https://github.com/agent-ai-community/agent-context-compression"
+Repository = "https://github.com/agent-ai-community/agent-context-compression"
+Issues = "https://github.com/agent-ai-community/agent-context-compression/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["context_compression*"]

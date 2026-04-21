@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>AzureAICommunity.Agent.Middleware.YouTube</AssemblyName>
+        <RootNamespace>AzureAICommunity.Agent.Middleware.YouTube</RootNamespace>
+
+        <!-- ── NuGet package identity ────────────────────────────── -->
+        <PackageId>AzureAICommunity.Agent.Middleware.YouTube</PackageId>
+        <Version>1.0.0</Version>
+        <Title>AzureAICommunity – YouTube Video Middleware</Title>
+        <Authors>Vinoth Rajendran</Authors>
+        <Copyright>Copyright © 2026 Vinoth Rajendran – AzureAICommunity</Copyright>
+        <Description>A plug-and-play YouTube video search middleware for Microsoft.Agents.AI and Microsoft.Extensions.AI agent pipelines. Exposes a SearchVideos AI tool that accepts a natural-language query and returns matching YouTube watch URLs with titles and descriptions — powered by the YouTube Data API v3. Supports channel scoping, paged results, and optional structured logging.</Description>
+        <PackageTags>youtube;search;video;ai;middleware;agent;extensions-ai;microsoft-agents-ai;llm;dotnet;youtube-api</PackageTags>
+
+        <!-- ── Licensing and project links ───────────────────────── -->
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageProjectUrl>https://github.com/rvinothrajendran/AgentFramework</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/rvinothrajendran/AgentFramework</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+
+        <!-- ── Package assets ────────────────────────────────────── -->
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>icon.jpg</PackageIcon>
+
+        <!-- ── Symbol / determinism ──────────────────────────────── -->
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <Deterministic>true</Deterministic>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="icon.jpg">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Google.Apis.YouTube.v3" Version="1.73.0.4099" />
+        <PackageReference Include="Microsoft.Agents.AI" Version="1.1.0" />
+        <PackageReference Include="Microsoft.Extensions.AI" Version="10.4.1" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.4" />
+    </ItemGroup>
+
+</Project>

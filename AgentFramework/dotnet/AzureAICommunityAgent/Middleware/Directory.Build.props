@@ -1,0 +1,14 @@
+<Project>
+  <!--
+    Applied automatically to every middleware project under this folder by MSBuild.
+    Redirects generated .nupkg / .snupkg files to a shared local-packages feed
+    so all middleware packages land in one place for local testing.
+
+    Output structure:
+      dotnet\AzureAICommunityAgent\local-packages\Debug\    (Debug builds)
+      dotnet\AzureAICommunityAgent\local-packages\Release\  (Release builds)
+  -->
+  <PropertyGroup>
+    <PackageOutputPath>$(MSBuildThisFileDirectory)..\local-packages\$(Configuration)</PackageOutputPath>
+  </PropertyGroup>
+</Project>
