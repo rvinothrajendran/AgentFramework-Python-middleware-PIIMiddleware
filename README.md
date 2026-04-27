@@ -26,7 +26,7 @@ All packages are independently installable and can be composed together in the s
 | Runtime | Middleware | Modules | Location |
 |---|---|---|---|
 | Python | 5 packages | 2 packages | [`AgentFramework/Python/`](AgentFramework/Python/) |
-| .NET | 7 packages | — | [`AgentFramework/dotnet/`](AgentFramework/dotnet/) |
+| .NET | 8 packages | — | [`AgentFramework/dotnet/`](AgentFramework/dotnet/) |
 
 ---
 
@@ -185,6 +185,16 @@ Provides `SearchByName` (glob pattern) and `SearchByContent` tools for searching
 `AzureAICommunity.Agent.Middleware.AzureMapsAddressSuggestionMiddleware`
 
 Queries the Azure Maps Search API for points of interest and address suggestions anywhere in the world — wired into any agent via the `AsBuilder().Use(...)` pipeline.
+
+---
+
+#### 🛠️ ToolLimitMiddleware
+
+[![NuGet](https://img.shields.io/nuget/v/AzureAICommunity.Agent.Middleware.ToolLimitMiddleware)](https://www.nuget.org/packages/AzureAICommunity.Agent.Middleware.ToolLimitMiddleware/) &nbsp; ![Downloads](https://img.shields.io/nuget/dt/AzureAICommunity.Agent.Middleware.ToolLimitMiddleware) &nbsp; [📖 README](AgentFramework/dotnet/AzureAICommunityAgent/Middleware/ToolLimitMiddleware/README.md)
+
+`AzureAICommunity.Agent.Middleware.ToolLimitMiddleware`
+
+Prevents runaway tool calls by enforcing a global cap and optional per-tool limits — silently suppresses over-limit calls, notifies the model, and exposes attempted vs allowed counters via `IToolLimitTracker`.
 
 ---
 

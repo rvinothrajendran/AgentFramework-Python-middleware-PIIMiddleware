@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>AzureAICommunity.Agent.Middleware.ToolLimitMiddleware</AssemblyName>
+        <RootNamespace>AzureAICommunityAgent.Middleware.ToolLimiting</RootNamespace>
+
+        <!-- ── NuGet package identity ────────────────────────────── -->
+        <PackageId>AzureAICommunity.Agent.Middleware.ToolLimitMiddleware</PackageId>
+        <Version>1.0.0</Version>
+        <Title>AzureAICommunity – Tool Limit Middleware</Title>
+        <Authors>Vinoth Rajendran</Authors>
+        <Copyright>Copyright © 2026 Vinoth Rajendran – AzureAICommunity</Copyright>
+        <Description>A plug-and-play tool-call limiting middleware for Microsoft.Extensions.AI chat pipelines. Enforces a global cap on total tool invocations and optional per-tool limits within a single agent session, silently suppressing calls that exceed the threshold and notifying the model via a user message.</Description>
+        <PackageTags>tool-limit;tool-calls;ai;middleware;chat;extensions-ai;agent;microsoft-extensions-ai;dotnet;llm</PackageTags>
+
+        <!-- ── Licensing and project links ───────────────────────── -->
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageProjectUrl>https://github.com/rvinothrajendran/AgentFramework</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/rvinothrajendran/AgentFramework</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+
+        <!-- ── Package assets ────────────────────────────────────── -->
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>icon.jpg</PackageIcon>
+
+        <!-- ── Symbol / determinism ──────────────────────────────── -->
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <Deterministic>true</Deterministic>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="icon.jpg">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Agents.AI" Version="1.1.0" />
+        <PackageReference Include="Microsoft.Extensions.AI" Version="10.4.1" />
+    </ItemGroup>
+
+</Project>

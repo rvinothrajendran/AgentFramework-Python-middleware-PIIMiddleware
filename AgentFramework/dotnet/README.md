@@ -29,6 +29,7 @@ All packages are published to [NuGet](https://www.nuget.org/search?q=AzureAIComm
 | `AzureAICommunity.Agent.Middleware.YouTube` | [![NuGet](https://img.shields.io/nuget/v/AzureAICommunity.Agent.Middleware.YouTube)](https://www.nuget.org/packages/AzureAICommunity.Agent.Middleware.YouTube/) | ![Downloads](https://img.shields.io/nuget/dt/AzureAICommunity.Agent.Middleware.YouTube) | Search YouTube videos directly from your AI agent pipeline using the YouTube Data API v3 | [README →](AzureAICommunityAgent/Middleware/YouTubeVideoMiddleware/README.md) |
 | `AzureAICommunity.Agent.Middleware.FileSearchMiddleware` | [![NuGet](https://img.shields.io/nuget/v/AzureAICommunity.Agent.Middleware.FileSearchMiddleware)](https://www.nuget.org/packages/AzureAICommunity.Agent.Middleware.FileSearchMiddleware/) | ![Downloads](https://img.shields.io/nuget/dt/AzureAICommunity.Agent.Middleware.FileSearchMiddleware) | File search by name (glob) and content for AI agent pipelines | [README →](AzureAICommunityAgent/Middleware/FileSearchMiddleware/README.md) |
 | `AzureAICommunity.Agent.Middleware.AzureMapsAddressSuggestionMiddleware` | [![NuGet](https://img.shields.io/nuget/v/AzureAICommunity.Agent.Middleware.AzureMapsAddressSuggestionMiddleware)](https://www.nuget.org/packages/AzureAICommunity.Agent.Middleware.AzureMapsAddressSuggestionMiddleware/) | ![Downloads](https://img.shields.io/nuget/dt/AzureAICommunity.Agent.Middleware.AzureMapsAddressSuggestionMiddleware) | Find points of interest anywhere in the world from your AI agent pipeline using Azure Maps | [README →](AzureAICommunityAgent/Middleware/AzureMapsAddressSuggestionMiddleware/README.md) |
+| `AzureAICommunity.Agent.Middleware.ToolLimitMiddleware` | [![NuGet](https://img.shields.io/nuget/v/AzureAICommunity.Agent.Middleware.ToolLimitMiddleware)](https://www.nuget.org/packages/AzureAICommunity.Agent.Middleware.ToolLimitMiddleware/) | ![Downloads](https://img.shields.io/nuget/dt/AzureAICommunity.Agent.Middleware.ToolLimitMiddleware) | Prevent runaway tool calls by enforcing a global cap and optional per-tool limits with usage introspection | [README →](AzureAICommunityAgent/Middleware/ToolLimitMiddleware/README.md) |
 
 ---
 
@@ -144,6 +145,24 @@ Enables your AI agent to find **real points of interest** (coffee shops, hospita
 
 📦 `dotnet add package AzureAICommunity.Agent.Middleware.AzureMapsAddressSuggestionMiddleware`  
 📖 [Full documentation](AzureAICommunityAgent/Middleware/AzureMapsAddressSuggestionMiddleware/README.md)
+
+---
+
+## 🛠️ Tool Limit Middleware
+
+Prevents **runaway tool calls** by enforcing a **global cap** and optional **per-tool limits** within a single agent session. Over-limit calls are silently removed, the model is notified via a user message, and a live `ToolUsageState` snapshot is always available via `IToolLimitTracker`.
+
+- Global call cap — limits total tool invocations in a session
+- Per-tool limits — independent ceilings per tool name
+- Silent suppression — over-limit calls are removed; no exception is thrown
+- Model notification — user-role message appended when calls are blocked
+- `PerTool` (all attempted) and `PerToolAllowed` (allowed only) counters per tool
+- `Reset()` clears all counters for a fresh session
+- Full streaming support (`GetStreamingResponseAsync`)
+- Drops into any `Microsoft.Extensions.AI` pipeline
+
+📦 `dotnet add package AzureAICommunity.Agent.Middleware.ToolLimitMiddleware`  
+📖 [Full documentation](AzureAICommunityAgent/Middleware/ToolLimitMiddleware/README.md)
 
 ---
 
